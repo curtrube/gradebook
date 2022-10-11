@@ -1,13 +1,19 @@
 class Gradebook:
-    def __init__(self, grades):
+    def __init__(self, course, grades):
+        self.course = course
         self.grades = grades
+
+    
+    def name(self):
+        course_name = self.course.lower()
+        return f"{course_name.title()} Gradebook"
 
 
     def average_grade(self):
         """
         Find the average grade from a list of grades.
         """
-        average_grade = int(sum(self.grades) / len(self.grades))
+        average_grade = round(sum(self.grades) / len(self.grades), 1)
 
         return average_grade
 
@@ -28,3 +34,7 @@ class Gradebook:
         low_grade = int(min(self.grades))
 
         return low_grade
+
+    
+    # def letter_grade(self):
+    #     if grade_percentage >= 94:
